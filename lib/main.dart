@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/screens/home/home_screen.dart';
+import 'package:magic_workouts/utilities/app_theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Magic Workouts',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomeScreen(title: 'Magic Workouts'),
+      title: AppStrings.appName,
+      theme: AppTheme.instance.theme,
+      home: const HomeScreen(),
     );
   }
 }
