@@ -13,6 +13,7 @@ class AppTheme {
         surface: _primary,
         seedColor: _primary,
       ),
+      iconTheme: const IconThemeData(color: _primary),
       useMaterial3: true,
     );
   }
