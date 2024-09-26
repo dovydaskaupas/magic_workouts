@@ -16,6 +16,7 @@ class AppTheme {
         surface: _primary,
         seedColor: _primary,
       ),
+      cardTheme: const CardTheme(color: _secondary),
       iconTheme: const IconThemeData(color: _primary),
       useMaterial3: true,
     );

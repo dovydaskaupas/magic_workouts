@@ -24,15 +24,14 @@ class WorkoutCard extends StatelessWidget {
       width: UIProperties.widthCard,
       child: Card(
         clipBehavior: Clip.hardEdge,
-        color: Colors.grey.shade800,
         margin: const EdgeInsets.all(UIProperties.paddingGeneric),
         elevation: UIProperties.elevationCard,
         child: InkWell(
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(
-              vertical: 24,
-              horizontal: 16,
+              vertical: UIProperties.paddingCard,
+              horizontal: UIProperties.paddingGeneric,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +42,7 @@ class WorkoutCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: theme.textTheme.label,
+                      style: theme.textTheme.cardTitle,
                     ),
                     Icon(icon),
                   ],
