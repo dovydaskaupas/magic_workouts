@@ -21,7 +21,7 @@ class WorkoutCard extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return SizedBox(
-      width: UIProperties.widthCard,
+      width: UIProperties.widthGeneric,
       child: Card(
         clipBehavior: Clip.hardEdge,
         margin: const EdgeInsets.all(UIProperties.paddingGeneric),

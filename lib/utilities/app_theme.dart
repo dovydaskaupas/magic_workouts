@@ -5,19 +5,22 @@ class AppTheme {
   AppTheme._internal();
   static AppTheme get instance => _singleton;
 
-  static const Color _primary = Colors.white;
-  static const Color _secondary = Color(0xff424242);
+  static const Color _primary = Color(0xff424242);
+  static const Color _surface = Colors.white;
 
   ThemeData get theme {
     return ThemeData(
+      cardTheme: const CardTheme(color: _primary),
       colorScheme: ColorScheme.fromSeed(
         primary: _primary,
-        secondary: _secondary,
-        surface: _primary,
-        seedColor: _primary,
+        secondary: _primary,
+        surface: _surface,
+        seedColor: _surface,
       ),
-      cardTheme: const CardTheme(color: _secondary),
-      iconTheme: const IconThemeData(color: _primary),
+      iconTheme: const IconThemeData(color: _surface),
+      inputDecorationTheme: const InputDecorationTheme(
+        suffixIconColor: _primary,
+      ),
       useMaterial3: true,
     );
   }
