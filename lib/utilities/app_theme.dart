@@ -6,10 +6,13 @@ class AppTheme {
   static AppTheme get instance => _singleton;
 
   static const Color _primary = Colors.white;
+  static const Color _secondary = Color(0xff424242);
 
   ThemeData get theme {
     return ThemeData(
       colorScheme: ColorScheme.fromSeed(
+        primary: _primary,
+        secondary: _secondary,
         surface: _primary,
         seedColor: _primary,
       ),
