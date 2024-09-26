@@ -24,8 +24,11 @@ class WorkoutCard extends StatelessWidget {
       width: UIProperties.widthGeneric,
       child: Card(
         clipBehavior: Clip.hardEdge,
-        margin: const EdgeInsets.all(UIProperties.paddingGeneric),
         elevation: UIProperties.elevationCard,
+        margin: const EdgeInsets.all(UIProperties.paddingGeneric),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(UIProperties.radiusGeneric),
+        ),
         child: InkWell(
           onTap: onTap,
           child: Padding(

@@ -10,7 +10,7 @@ class UIProperties {
   static const double paddingText = 10;
   static const double paddingRow = 8;
 
-  static const Radius radiusDropdown = Radius.circular(24);
+  static const Radius radiusGeneric = Radius.circular(24);
 
   static const double widthGeneric = 300;
 }
