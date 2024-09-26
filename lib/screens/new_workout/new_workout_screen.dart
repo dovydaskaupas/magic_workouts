@@ -6,6 +6,7 @@ import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/providers/workout_set_notifier_provider/workout_set_notifier_provider.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/exercise_dropdown_button.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/save_workout_button.dart';
+import 'package:magic_workouts/screens/new_workout/widgets/weight_input_field.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/workout_set_list/workout_set_list.dart';
 import 'package:magic_workouts/widgets/custom_app_bar.dart';
 import 'package:magic_workouts/widgets/custom_text_field.dart';
@@ -25,12 +26,7 @@ class NewWorkoutScreen extends ConsumerWidget {
           width: double.maxFinite,
         ),
         const ExerciseDropdownButton(),
-        CustomTextField(
-          inputFormatters: AppInputFormatters.digitsOnlyFormatter,
-          labelText: AppStrings.newWeight,
-          maxLength: 3,
-          onChanged: (newValue) => _setWeight(newValue, ref),
-        ),
+        const WeightInputField(),
         CustomTextField(
           inputFormatters: AppInputFormatters.digitsOnlyFormatter,
           labelText: AppStrings.newRepetitions,
@@ -42,12 +38,6 @@ class NewWorkoutScreen extends ConsumerWidget {
         const SizedBox(width: UIProperties.paddingGeneric),
       ],
     );
-  }
-
-  void _setWeight(final String? newValue, final WidgetRef ref) {
-    final int? weight = int.tryParse(newValue ?? "");
-
-    ref.read(workoutSetNotifierProvider.notifier).setWeight(weight);
   }
 
   void _setRepetitions(final String? newValue, final WidgetRef ref) {

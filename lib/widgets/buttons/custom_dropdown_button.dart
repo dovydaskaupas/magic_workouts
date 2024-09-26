@@ -5,11 +5,13 @@ import 'package:magic_workouts/utilities/text_theme_extension.dart';
 class CustomDropdownButton extends StatefulWidget {
   const CustomDropdownButton({
     super.key,
+    this.selectedValue,
     required this.items,
     required this.hint,
     required this.onChanged,
   });
 
+  final String? selectedValue;
   final List<String> items;
   final String hint;
   final Function(String?) onChanged;
@@ -19,7 +21,14 @@ class CustomDropdownButton extends StatefulWidget {
 }
 
 class _CustomDropdownButtonState extends State<CustomDropdownButton> {
-  String? selectedValue;
+  String? _selectedValue;
+
+  @override
+  void initState() {
+    _selectedValue = widget.selectedValue;
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +67,13 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
           isExpanded: true,
           style: const TextStyle(color: Colors.black),
           underline: const SizedBox(),
-          value: selectedValue,
+          value: _selectedValue,
           items: widget.items.map((String item) {
             return DropdownMenuItem<String>(
               value: item,
               child: Text(
                 item,
-                style: item == selectedValue
+                style: item == _selectedValue
                     ? theme.textTheme.label
                     : theme.textTheme.value,
               ),
@@ -77,7 +86,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   }
 
   void _onSelectionChanged(final String? newValue) {
-    setState(() => selectedValue = newValue);
+    setState(() => _selectedValue = newValue);
 
     widget.onChanged(newValue);
   }
