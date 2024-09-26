@@ -1,4 +1,4 @@
-import 'package:magic_workouts/models/set/workout_set.dart';
+import 'package:magic_workouts/models/workout_set/workout_set.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'workout_set_notifier_provider.g.dart';

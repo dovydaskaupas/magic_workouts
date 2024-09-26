@@ -33,13 +33,13 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
         decoration: BoxDecoration(
           color: theme.colorScheme.secondary,
           borderRadius: const BorderRadius.all(
-            UIProperties.radiusDropdown,
+            UIProperties.radiusGeneric,
           ),
         ),
         width: UIProperties.widthGeneric,
         child: DropdownButton<String>(
           borderRadius: const BorderRadius.all(
-            UIProperties.radiusDropdown,
+            UIProperties.radiusGeneric,
           ),
           padding: const EdgeInsets.symmetric(
             horizontal: UIProperties.paddingGeneric,

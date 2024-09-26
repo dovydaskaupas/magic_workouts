@@ -5,8 +5,8 @@ import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/providers/set_notifier_provider/workout_set_notifier_provider.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/save_workout_button.dart';
+import 'package:magic_workouts/widgets/buttons/custom_dropdown_button.dart';
 import 'package:magic_workouts/widgets/custom_app_bar.dart';
-import 'package:magic_workouts/widgets/custom_dropdown_button.dart';
 import 'package:magic_workouts/widgets/custom_text_field.dart';
 import 'package:magic_workouts/widgets/scrollable_scaffold.dart';
 
