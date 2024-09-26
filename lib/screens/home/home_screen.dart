@@ -19,14 +19,14 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           const SizedBox(width: double.maxFinite),
           WorkoutCard(
-            title: AppStrings.homeCardNewTitle,
+            title: AppStrings.titleNewWorkout,
             message: AppStrings.homeCardNewMessage,
             icon: Icons.fitness_center,
             onTap: () => _openNewWorkoutScreen(context),
           ),
           const SizedBox(height: UIProperties.paddingCard),
           WorkoutCard(
-            title: AppStrings.homeCardWorkoutsTitle,
+            title: AppStrings.titleWorkoutList,
             message: AppStrings.homeCardWorkoutsMessage,
             icon: Icons.history,
             onTap: () => _openYourWorkoutsScreen(context),

@@ -43,7 +43,7 @@ class WorkoutCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style: theme.textTheme.title,
+                      style: theme.textTheme.label,
                     ),
                     Icon(icon),
                   ],

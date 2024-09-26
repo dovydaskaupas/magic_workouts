@@ -8,7 +8,7 @@ class NewWorkoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: CustomAppBar(title: AppStrings.titleNewWorkout),
+      appBar: CustomAppBar(title: AppStrings.homeCardNewTitle),
       body: Center(
         child: Text(AppStrings.titleNewWorkout),
       ),
