@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
+    required this.labelText,
     this.value,
     this.maxLength,
     this.inputFormatters,
     required this.onChanged,
   });
 
+  final String labelText;
   final String? value;
   final int? maxLength;
   final List<TextInputFormatter>? inputFormatters;
@@ -38,7 +39,7 @@ class CustomTextField extends StatelessWidget {
           keyboardType: TextInputType.number,
           maxLength: maxLength,
           decoration: InputDecoration(
-            labelText: AppStrings.newWeight,
+            labelText: labelText,
             isDense: true,
             suffix: Icon(
               Icons.clear,

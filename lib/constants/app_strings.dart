@@ -20,6 +20,7 @@ class AppStrings {
   static const String newExercise3 = "Shoulder Press";
   static const String newExercise4 = "Dead-lift";
   static const String newExercise5 = "Squat";
+  static const String newWeight = "Enter the exercise weight";
 
   // errors
   static const String errorGeneric = "Oops! Something went wrong...";
