@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
+import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/widgets/custom_app_bar.dart';
+import 'package:magic_workouts/widgets/custom_dropdown_button.dart';
 import 'package:magic_workouts/widgets/scrollable_scaffold.dart';
 
 class NewWorkoutScreen extends StatelessWidget {
@@ -8,12 +10,23 @@ class NewWorkoutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ScrollableScaffold(
-      appBar: CustomAppBar(title: AppStrings.homeCardNewTitle),
-      mainAxisAlignment: MainAxisAlignment.center,
+    return ScrollableScaffold(
+      appBar: const CustomAppBar(title: AppStrings.homeCardNewTitle),
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Text(AppStrings.titleNewWorkout),
+        const SizedBox(width: double.maxFinite),
+        CustomDropdownButton(
+          hint: AppStrings.newExerciseDropdownHint,
+          items: const [
+            AppStrings.newExercise1,
+            AppStrings.newExercise2,
+            AppStrings.newExercise3,
+            AppStrings.newExercise4,
+            AppStrings.newExercise5,
+          ],
+          onChanged: (newValue) {},
+        ),
+        const SizedBox(width: UIProperties.paddingGeneric),
       ],
     );
   }

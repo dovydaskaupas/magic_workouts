@@ -13,6 +13,14 @@ class AppStrings {
   static const String homeCardWorkoutsTitle = "Workouts";
   static const String homeCardWorkoutsMessage = "View your recorded workouts";
 
+  // new workout widgets
+  static const String newExerciseDropdownHint = "Select an exercise";
+  static const String newExercise1 = "Barbell Row";
+  static const String newExercise2 = "Bench Press";
+  static const String newExercise3 = "Shoulder Press";
+  static const String newExercise4 = "Dead-lift";
+  static const String newExercise5 = "Squat";
+
   // errors
   static const String errorGeneric = "Oops! Something went wrong...";
 
