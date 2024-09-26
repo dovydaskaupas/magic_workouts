@@ -34,6 +34,12 @@ class NewWorkoutScreen extends StatelessWidget {
           maxLength: 3,
           onChanged: (newValue) {},
         ),
+        CustomTextField(
+          inputFormatters: AppInputFormatters.digitsOnlyFormatter,
+          labelText: AppStrings.newRepetitions,
+          maxLength: 4,
+          onChanged: (newValue) {},
+        ),
         const SizedBox(width: UIProperties.paddingGeneric),
       ],
     );
