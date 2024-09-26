@@ -53,14 +53,14 @@ class NewWorkoutScreen extends ConsumerWidget {
     ref.read(workoutSetNotifierProvider.notifier).setExercise(newValue);
   }
 
-  void _setWeight(final String newValue, final WidgetRef ref) {
-    final int? weight = int.tryParse(newValue);
+  void _setWeight(final String? newValue, final WidgetRef ref) {
+    final int? weight = int.tryParse(newValue ?? "");
 
     ref.read(workoutSetNotifierProvider.notifier).setWeight(weight);
   }
 
-  void _setRepetitions(final String newValue, final WidgetRef ref) {
-    final int? repetitions = int.tryParse(newValue);
+  void _setRepetitions(final String? newValue, final WidgetRef ref) {
+    final int? repetitions = int.tryParse(newValue ?? "");
 
     ref.read(workoutSetNotifierProvider.notifier).setRepetitions(repetitions);
   }

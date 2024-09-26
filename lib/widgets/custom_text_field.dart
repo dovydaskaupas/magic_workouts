@@ -16,7 +16,7 @@ class CustomTextField extends StatelessWidget {
   final String? value;
   final int? maxLength;
   final List<TextInputFormatter>? inputFormatters;
-  final Function(String) onChanged;
+  final Function(String?) onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -41,9 +41,12 @@ class CustomTextField extends StatelessWidget {
           decoration: InputDecoration(
             labelText: labelText,
             isDense: true,
-            suffix: Icon(
-              Icons.clear,
-              color: theme.primaryColor,
+            suffix: InkResponse(
+              onTap: () => _clearInput(controller),
+              child: Icon(
+                Icons.clear,
+                color: theme.primaryColor,
+              ),
             ),
           ),
           controller: controller,
@@ -51,5 +54,11 @@ class CustomTextField extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _clearInput(final TextEditingController controller) {
+    controller.clear();
+
+    onChanged(null);
   }
 }
