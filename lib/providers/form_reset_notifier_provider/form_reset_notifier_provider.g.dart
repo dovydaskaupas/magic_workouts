@@ -1,26 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'workout_notifier_provider.dart';
+part of 'form_reset_notifier_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$workoutNotifierHash() => r'0197f916744a11ab36ca6cc52a6e1c43b0f77d42';
+String _$formResetNotifierHash() => r'f2849842c11b1cf6876d16ccf612a264a8c8bbdd';
 
-/// See also [WorkoutNotifier].
-@ProviderFor(WorkoutNotifier)
-final workoutNotifierProvider =
-    AutoDisposeNotifierProvider<WorkoutNotifier, Workout>.internal(
-  WorkoutNotifier.new,
-  name: r'workoutNotifierProvider',
+/// See also [FormResetNotifier].
+@ProviderFor(FormResetNotifier)
+final formResetNotifierProvider =
+    AutoDisposeNotifierProvider<FormResetNotifier, bool>.internal(
+  FormResetNotifier.new,
+  name: r'formResetNotifierProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$workoutNotifierHash,
+      : _$formResetNotifierHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$WorkoutNotifier = AutoDisposeNotifier<Workout>;
+typedef _$FormResetNotifier = AutoDisposeNotifier<bool>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
