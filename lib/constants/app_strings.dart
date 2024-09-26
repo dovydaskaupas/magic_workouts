@@ -4,6 +4,8 @@ class AppStrings {
   // titles
   static const String appName = "Magic Workouts";
   static const String titleHome = "Home";
+  static const String titleNewWorkout = "New Workout";
+  static const String titleWorkoutList = "Workout List";
 
   // home widgets
   static const String homeCardNewTitle = "New Workout";
