@@ -21,4 +21,8 @@ class WorkoutSetNotifier extends _$WorkoutSetNotifier {
   void setRepetitions(final int? repetitions) {
     state = state.copyWith(repetitions: repetitions);
   }
+
+  void reset() {
+    state = const WorkoutSet();
+  }
 }
