@@ -4,35 +4,34 @@ import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/enums/app_routes.dart';
 import 'package:magic_workouts/screens/home/widgets/workout_card.dart';
-import 'package:magic_workouts/widgets/custom_app_bar/custom_app_bar.dart';
+import 'package:magic_workouts/widgets/custom_app_bar.dart';
+import 'package:magic_workouts/widgets/scrollable_scaffold.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ScrollableScaffold(
       appBar: const CustomAppBar(title: AppStrings.titleHome),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          const SizedBox(width: double.maxFinite),
-          WorkoutCard(
-            title: AppStrings.titleNewWorkout,
-            message: AppStrings.homeCardNewMessage,
-            icon: Icons.fitness_center,
-            onTap: () => _openNewWorkoutScreen(context),
-          ),
-          const SizedBox(height: UIProperties.paddingCard),
-          WorkoutCard(
-            title: AppStrings.titleWorkoutList,
-            message: AppStrings.homeCardWorkoutsMessage,
-            icon: Icons.history,
-            onTap: () => _openYourWorkoutsScreen(context),
-          ),
-        ],
-      ),
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        const SizedBox(width: double.maxFinite),
+        WorkoutCard(
+          title: AppStrings.titleNewWorkout,
+          message: AppStrings.homeCardNewMessage,
+          icon: Icons.fitness_center,
+          onTap: () => _openNewWorkoutScreen(context),
+        ),
+        const SizedBox(height: UIProperties.paddingCard),
+        WorkoutCard(
+          title: AppStrings.titleWorkoutList,
+          message: AppStrings.homeCardWorkoutsMessage,
+          icon: Icons.history,
+          onTap: () => _openYourWorkoutsScreen(context),
+        ),
+      ],
     );
   }
 
