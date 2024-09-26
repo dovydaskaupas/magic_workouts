@@ -3,6 +3,8 @@ class AppStrings {
 
   // generic
   static const String genSave = "Save";
+  static const String genConfirm = "Confirm";
+  static const String genCancel = "Cancel";
 
   // titles
   static const String appName = "Magic Workouts";
@@ -25,6 +27,7 @@ class AppStrings {
   static const String newExercise5 = "Squat";
   static const String newWeight = "Enter the exercise weight";
   static const String newRepetitions = "Enter the number of repetitions";
+  static const String newWorkoutName = "Workout name";
 
   // errors
   static const String errorGeneric = "Oops! Something went wrong...";
