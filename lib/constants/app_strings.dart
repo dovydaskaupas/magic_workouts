@@ -1,6 +1,9 @@
 class AppStrings {
   AppStrings._();
 
+  // generic
+  static const String genSave = "Save";
+
   // titles
   static const String appName = "Magic Workouts";
   static const String titleHome = "Home";

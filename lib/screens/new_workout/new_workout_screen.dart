@@ -4,6 +4,7 @@ import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/widgets/custom_app_bar.dart';
 import 'package:magic_workouts/widgets/custom_dropdown_button.dart';
+import 'package:magic_workouts/widgets/custom_outlined_button.dart';
 import 'package:magic_workouts/widgets/custom_text_field.dart';
 import 'package:magic_workouts/widgets/scrollable_scaffold.dart';
 
@@ -39,6 +40,11 @@ class NewWorkoutScreen extends StatelessWidget {
           labelText: AppStrings.newRepetitions,
           maxLength: 4,
           onChanged: (newValue) {},
+        ),
+        CustomOutlinedButton(
+          text: AppStrings.genSave,
+          enabled: true,
+          onPressed: () {},
         ),
         const SizedBox(width: UIProperties.paddingGeneric),
       ],
