@@ -17,7 +17,7 @@ class SaveWorkoutButton extends ConsumerWidget {
     return CustomOutlinedButton(
       text: AppStrings.genSave,
       enabled: _isWorkoutSetValid(workoutSet),
-      onPressed: () => _addWorkoutSet(ref, workoutSet),
+      onPressed: () => _saveWorkoutSet(ref, workoutSet),
     );
   }
 
@@ -27,10 +27,12 @@ class SaveWorkoutButton extends ConsumerWidget {
         workoutSet.repetitions != null;
   }
 
-  void _addWorkoutSet(
+  void _saveWorkoutSet(
     final WidgetRef ref,
     final WorkoutSet workoutSet,
   ) async {
+    FocusManager.instance.primaryFocus?.unfocus();
+
     ref.read(workoutNotifierProvider.notifier).addSet(workoutSet);
     ref.read(formResetNotifierProvider.notifier).resetForm(ref);
   }
