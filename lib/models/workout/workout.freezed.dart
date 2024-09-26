@@ -20,9 +20,9 @@ Workout _$WorkoutFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Workout {
-  String get name => throw _privateConstructorUsedError;
-  DateTime get date => throw _privateConstructorUsedError;
-  List<Set> get sets => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
+  List<WorkoutSet> get sets => throw _privateConstructorUsedError;
 
   /// Serializes this Workout to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $WorkoutCopyWith<$Res> {
   factory $WorkoutCopyWith(Workout value, $Res Function(Workout) then) =
       _$WorkoutCopyWithImpl<$Res, Workout>;
   @useResult
-  $Res call({String name, DateTime date, List<Set> sets});
+  $Res call({String? name, DateTime? date, List<WorkoutSet> sets});
 }
 
 /// @nodoc
@@ -56,23 +56,23 @@ class _$WorkoutCopyWithImpl<$Res, $Val extends Workout>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? date = null,
+    Object? name = freezed,
+    Object? date = freezed,
     Object? sets = null,
   }) {
     return _then(_value.copyWith(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
+              as String?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       sets: null == sets
           ? _value.sets
           : sets // ignore: cast_nullable_to_non_nullable
-              as List<Set>,
+              as List<WorkoutSet>,
     ) as $Val);
   }
 }
@@ -84,7 +84,7 @@ abstract class _$$WorkoutImplCopyWith<$Res> implements $WorkoutCopyWith<$Res> {
       __$$WorkoutImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, DateTime date, List<Set> sets});
+  $Res call({String? name, DateTime? date, List<WorkoutSet> sets});
 }
 
 /// @nodoc
@@ -100,23 +100,23 @@ class __$$WorkoutImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
-    Object? date = null,
+    Object? name = freezed,
+    Object? date = freezed,
     Object? sets = null,
   }) {
     return _then(_$WorkoutImpl(
-      name: null == name
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      date: null == date
+              as String?,
+      date: freezed == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       sets: null == sets
           ? _value._sets
           : sets // ignore: cast_nullable_to_non_nullable
-              as List<Set>,
+              as List<WorkoutSet>,
     ));
   }
 }
@@ -125,19 +125,19 @@ class __$$WorkoutImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$WorkoutImpl implements _Workout {
   const _$WorkoutImpl(
-      {required this.name, required this.date, required final List<Set> sets})
+      {this.name, this.date, required final List<WorkoutSet> sets})
       : _sets = sets;
 
   factory _$WorkoutImpl.fromJson(Map<String, dynamic> json) =>
       _$$WorkoutImplFromJson(json);
 
   @override
-  final String name;
+  final String? name;
   @override
-  final DateTime date;
-  final List<Set> _sets;
+  final DateTime? date;
+  final List<WorkoutSet> _sets;
   @override
-  List<Set> get sets {
+  List<WorkoutSet> get sets {
     if (_sets is EqualUnmodifiableListView) return _sets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_sets);
@@ -181,18 +181,18 @@ class _$WorkoutImpl implements _Workout {
 
 abstract class _Workout implements Workout {
   const factory _Workout(
-      {required final String name,
-      required final DateTime date,
-      required final List<Set> sets}) = _$WorkoutImpl;
+      {final String? name,
+      final DateTime? date,
+      required final List<WorkoutSet> sets}) = _$WorkoutImpl;
 
   factory _Workout.fromJson(Map<String, dynamic> json) = _$WorkoutImpl.fromJson;
 
   @override
-  String get name;
+  String? get name;
   @override
-  DateTime get date;
+  DateTime? get date;
   @override
-  List<Set> get sets;
+  List<WorkoutSet> get sets;
 
   /// Create a copy of Workout
   /// with the given fields replaced by the non-null parameter values.
