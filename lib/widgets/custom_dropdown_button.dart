@@ -25,48 +25,53 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
-    return Container(
-      decoration: BoxDecoration(
-        color: theme.colorScheme.secondary,
-        borderRadius: const BorderRadius.all(
-          UIProperties.radiusDropdown,
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(
+        vertical: UIProperties.paddingRow,
       ),
-      width: UIProperties.widthDropdown,
-      child: DropdownButton<String>(
-        borderRadius: const BorderRadius.all(
-          UIProperties.radiusDropdown,
-        ),
-        padding: const EdgeInsets.symmetric(
-          horizontal: UIProperties.paddingGeneric,
-        ),
-        dropdownColor: theme.colorScheme.secondary,
-        hint: Padding(
-          padding: const EdgeInsets.only(
-            left: UIProperties.paddingText,
-          ),
-          child: Text(
-            widget.hint,
-            style: theme.textTheme.hint,
+      child: Container(
+        decoration: BoxDecoration(
+          color: theme.colorScheme.secondary,
+          borderRadius: const BorderRadius.all(
+            UIProperties.radiusDropdown,
           ),
         ),
-        iconEnabledColor: theme.colorScheme.primary,
-        isExpanded: true,
-        style: const TextStyle(color: Colors.black),
-        underline: const SizedBox(),
-        value: selectedValue,
-        items: widget.items.map((String item) {
-          return DropdownMenuItem<String>(
-            value: item,
-            child: Text(
-              item,
-              style: item == selectedValue
-                  ? theme.textTheme.label
-                  : theme.textTheme.value,
+        width: UIProperties.widthGeneric,
+        child: DropdownButton<String>(
+          borderRadius: const BorderRadius.all(
+            UIProperties.radiusDropdown,
+          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: UIProperties.paddingGeneric,
+          ),
+          dropdownColor: theme.colorScheme.secondary,
+          hint: Padding(
+            padding: const EdgeInsets.only(
+              left: UIProperties.paddingText,
             ),
-          );
-        }).toList(),
-        onChanged: _onSelectionChanged,
+            child: Text(
+              widget.hint,
+              style: theme.textTheme.hint,
+            ),
+          ),
+          iconEnabledColor: theme.colorScheme.surface,
+          isExpanded: true,
+          style: const TextStyle(color: Colors.black),
+          underline: const SizedBox(),
+          value: selectedValue,
+          items: widget.items.map((String item) {
+            return DropdownMenuItem<String>(
+              value: item,
+              child: Text(
+                item,
+                style: item == selectedValue
+                    ? theme.textTheme.label
+                    : theme.textTheme.value,
+              ),
+            );
+          }).toList(),
+          onChanged: _onSelectionChanged,
+        ),
       ),
     );
   }
