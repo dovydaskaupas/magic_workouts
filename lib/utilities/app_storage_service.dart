@@ -38,4 +38,16 @@ class AppStorageService {
     final List<dynamic> listData = jsonDecode(workoutListData);
     return listData.map((data) => Workout.fromJson(data)).toList();
   }
+
+  Future<Workout?> getWorkoutByDate(final String date) async {
+    final List<Workout> workouts = await _getWorkoutList();
+
+    for (final Workout workout in workouts) {
+      if (workout.date.toString() == date) {
+        return workout;
+      }
+    }
+
+    return null;
+  }
 }
