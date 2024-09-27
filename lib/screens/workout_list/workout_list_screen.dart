@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/models/workout/workout.dart';
+import 'package:magic_workouts/providers/workout_list_notifier_provider/workout_list_notifier_provider.dart';
 import 'package:magic_workouts/screens/workout_list/widgets/workout_list/workout_list.dart';
 import 'package:magic_workouts/utilities/app_storage_service.dart';
 import 'package:magic_workouts/widgets/custom_app_bar.dart';
 import 'package:magic_workouts/widgets/indicators/custom_circular_progress_indicator.dart';
 import 'package:magic_workouts/widgets/scrollable_scaffold.dart';
 
-class WorkoutListScreen extends StatelessWidget {
+class WorkoutListScreen extends ConsumerWidget {
   const WorkoutListScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final Future future = _readWorkoutList();
 
     return ScrollableScaffold(
@@ -27,8 +29,9 @@ class WorkoutListScreen extends StatelessWidget {
               return const CustomCircularProgressIndicator();
             }
 
-            final workoutList = snapshot.data as List<Workout>;
-            return WorkoutList(workoutList: workoutList);
+            _initWorkoutList(ref, snapshot.data);
+
+            return const WorkoutList();
           },
         ),
       ],
@@ -37,5 +40,11 @@ class WorkoutListScreen extends StatelessWidget {
 
   Future<List<Workout>> _readWorkoutList() async {
     return await AppStorageService.instance.getSavedWorkouts();
+  }
+
+  void _initWorkoutList(final WidgetRef ref, final List<Workout> workoutList) {
+    Future.microtask(() {
+      ref.read(workoutListNotifierProvider.notifier).addList(workoutList);
+    });
   }
 }
