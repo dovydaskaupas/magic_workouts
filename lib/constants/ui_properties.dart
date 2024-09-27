@@ -5,6 +5,8 @@ class UIProperties {
 
   static const double elevationCard = 24;
 
+  static const int lengthInputGeneric = 30;
+
   static const double paddingCard = 24;
   static const double paddingGeneric = 16;
   static const double paddingText = 10;

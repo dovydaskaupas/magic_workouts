@@ -30,4 +30,8 @@ class WorkoutNotifier extends _$WorkoutNotifier {
   void setDate() {
     state = state.copyWith(date: DateTime.now());
   }
+
+  void reset() {
+    state = const Workout(sets: []);
+  }
 }
