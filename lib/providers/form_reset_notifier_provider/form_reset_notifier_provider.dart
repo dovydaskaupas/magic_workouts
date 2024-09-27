@@ -7,13 +7,13 @@ part 'form_reset_notifier_provider.g.dart';
 @riverpod
 class FormResetNotifier extends _$FormResetNotifier {
   @override
-  bool build() {
-    return false;
+  int build() {
+    return 0;
   }
 
   void resetForm(final WidgetRef ref) {
     ref.read(workoutSetNotifierProvider.notifier).reset();
 
-    state = true;
+    state = state + 1;
   }
 }

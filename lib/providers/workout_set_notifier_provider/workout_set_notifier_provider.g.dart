@@ -7,7 +7,7 @@ part of 'workout_set_notifier_provider.dart';
 // **************************************************************************
 
 String _$workoutSetNotifierHash() =>
-    r'837b904d7e6fa7dc84d312f73d3cf9a3fe47f246';
+    r'42b9b7ef53534cc97893d7fb4bee3a76e67f2324';
 
 /// See also [WorkoutSetNotifier].
 @ProviderFor(WorkoutSetNotifier)
