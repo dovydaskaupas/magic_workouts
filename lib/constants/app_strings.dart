@@ -6,6 +6,7 @@ class AppStrings {
   static const String genConfirm = "Confirm";
   static const String genCancel = "Cancel";
   static const String genSuccess = "Success";
+  static const String genTapToSelect = "(tap to select)";
 
   // titles
   static const String appName = "Magic Workouts";
@@ -29,6 +30,12 @@ class AppStrings {
   static const String newWeight = "Enter the exercise weight";
   static const String newRepetitions = "Enter the number of repetitions";
   static const String newWorkoutName = "Workout name";
+  static const String newWorkoutSets = "Workout sets";
+
+  // workout list
+  static const String workoutDeleteTitle = "Delete Workout";
+  static const String workoutDeleteMessage =
+      "Please confirm that you want to delete this workout!";
 
   // errors
   static const String errorGeneric = "Oops! Something went wrong...";
