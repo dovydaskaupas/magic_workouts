@@ -6,7 +6,7 @@ part of 'workout_loader_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$workoutLoaderHash() => r'7662853a4addc687b081dce0d9253cff83e146f2';
+String _$workoutLoaderHash() => r'3cded06b69485dcb56a137f7d2c5ee1ad729373a';
 
 /// Copied from Dart SDK
 class _SystemHash {

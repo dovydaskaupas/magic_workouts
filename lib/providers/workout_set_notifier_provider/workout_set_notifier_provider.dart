@@ -25,4 +25,8 @@ class WorkoutSetNotifier extends _$WorkoutSetNotifier {
   void reset() {
     state = const WorkoutSet();
   }
+
+  void init(final WorkoutSet workoutSet) {
+    state = workoutSet;
+  }
 }

@@ -4,6 +4,7 @@ import 'package:magic_workouts/constants/app_input_formatters.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/providers/workout_set_count_notifier_provider/workout_set_count_notifier_provider.dart';
 import 'package:magic_workouts/providers/workout_set_notifier_provider/workout_set_notifier_provider.dart';
+import 'package:magic_workouts/providers/workout_set_tap_notifier_provider/workout_set_tap_notifier_provider.dart';
 import 'package:magic_workouts/widgets/custom_text_field.dart';
 
 class WeightInputField extends ConsumerWidget {
@@ -12,10 +13,10 @@ class WeightInputField extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(workoutSetCountNotifierProvider);
-    final int? weight = ref.read(workoutSetNotifierProvider).weight;
+    ref.watch(workoutSetTapNotifierProvider);
 
     return CustomTextField(
-      value: _formatWeightValue(weight),
+      value: _getWeightValue(ref),
       inputFormatters: AppInputFormatters.digitsOnlyFormatter,
       labelText: AppStrings.newWeight,
       maxLength: 3,
@@ -23,7 +24,8 @@ class WeightInputField extends ConsumerWidget {
     );
   }
 
-  String? _formatWeightValue(final int? weight) {
+  String? _getWeightValue(final WidgetRef ref) {
+    final int? weight = ref.read(workoutSetNotifierProvider).weight;
     if (weight == null) return null;
 
     return weight.toString();

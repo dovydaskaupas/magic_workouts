@@ -4,6 +4,7 @@ import 'package:magic_workouts/constants/app_input_formatters.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/providers/workout_set_count_notifier_provider/workout_set_count_notifier_provider.dart';
 import 'package:magic_workouts/providers/workout_set_notifier_provider/workout_set_notifier_provider.dart';
+import 'package:magic_workouts/providers/workout_set_tap_notifier_provider/workout_set_tap_notifier_provider.dart';
 import 'package:magic_workouts/widgets/custom_text_field.dart';
 
 class RepetitionsInputField extends ConsumerWidget {
@@ -12,10 +13,10 @@ class RepetitionsInputField extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(workoutSetCountNotifierProvider);
-    final int? repetitions = ref.read(workoutSetNotifierProvider).repetitions;
+    ref.watch(workoutSetTapNotifierProvider);
 
     return CustomTextField(
-      value: _formatRepetitionsValue(repetitions),
+      value: _getRepetitionsValue(ref),
       inputFormatters: AppInputFormatters.digitsOnlyFormatter,
       labelText: AppStrings.newRepetitions,
       maxLength: 4,
@@ -23,10 +24,11 @@ class RepetitionsInputField extends ConsumerWidget {
     );
   }
 
-  String? _formatRepetitionsValue(final int? weight) {
-    if (weight == null) return null;
+  String? _getRepetitionsValue(final WidgetRef ref) {
+    final int? repetitions = ref.read(workoutSetNotifierProvider).repetitions;
+    if (repetitions == null) return null;
 
-    return weight.toString();
+    return repetitions.toString();
   }
 
   void _setRepetitions(final String? newValue, final WidgetRef ref) {

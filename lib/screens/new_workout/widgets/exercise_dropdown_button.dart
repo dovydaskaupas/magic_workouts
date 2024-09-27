@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/providers/workout_set_count_notifier_provider/workout_set_count_notifier_provider.dart';
 import 'package:magic_workouts/providers/workout_set_notifier_provider/workout_set_notifier_provider.dart';
+import 'package:magic_workouts/providers/workout_set_tap_notifier_provider/workout_set_tap_notifier_provider.dart';
 import 'package:magic_workouts/widgets/buttons/custom_dropdown_button.dart';
 
 class ExerciseDropdownButton extends ConsumerWidget {
@@ -11,10 +12,10 @@ class ExerciseDropdownButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.watch(workoutSetCountNotifierProvider);
-    final String? exercise = ref.read(workoutSetNotifierProvider).exercise;
+    ref.watch(workoutSetTapNotifierProvider);
 
     return CustomDropdownButton(
-      selectedValue: exercise,
+      selectedValue: ref.read(workoutSetNotifierProvider).exercise,
       hint: AppStrings.newExerciseDropdownHint,
       items: const [
         AppStrings.newExerciseDropdownHint,

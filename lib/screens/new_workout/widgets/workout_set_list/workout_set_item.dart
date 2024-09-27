@@ -7,11 +7,13 @@ class WorkoutSetItem extends StatelessWidget {
     super.key,
     required this.index,
     required this.workoutSet,
+    required this.onTap,
     required this.onDelete,
   });
 
   final int index;
   final WorkoutSet workoutSet;
+  final VoidCallback onTap;
   final VoidCallback onDelete;
 
   @override
@@ -19,6 +21,7 @@ class WorkoutSetItem extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
 
     return ListTile(
+      onTap: onTap,
       title: Text("${workoutSet.exercise}"),
       subtitle: Text("${workoutSet.weight}kg x ${workoutSet.repetitions}reps"),
       leading: Text(
