@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/models/workout_set/workout_set.dart';
-import 'package:magic_workouts/providers/form_reset_notifier_provider/form_reset_notifier_provider.dart';
 import 'package:magic_workouts/providers/workout_notifier_provider/workout_notifier_provider.dart';
+import 'package:magic_workouts/providers/workout_set_count_notifier_provider/workout_set_count_notifier_provider.dart';
 import 'package:magic_workouts/providers/workout_set_notifier_provider/workout_set_notifier_provider.dart';
 import 'package:magic_workouts/widgets/buttons/custom_outlined_button.dart';
 
@@ -34,6 +34,6 @@ class SaveWorkoutButton extends ConsumerWidget {
     FocusManager.instance.primaryFocus?.unfocus();
 
     ref.read(workoutNotifierProvider.notifier).addSet(workoutSet);
-    ref.read(formResetNotifierProvider.notifier).resetForm(ref);
+    ref.read(workoutSetCountNotifierProvider.notifier).addSet(ref);
   }
 }

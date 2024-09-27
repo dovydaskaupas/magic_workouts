@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/models/workout_set/workout_set.dart';
 import 'package:magic_workouts/providers/workout_notifier_provider/workout_notifier_provider.dart';
+import 'package:magic_workouts/providers/workout_set_count_notifier_provider/workout_set_count_notifier_provider.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/workout_set_list/workout_set_item.dart';
 
 class WorkoutSetList extends ConsumerWidget {
@@ -37,5 +38,6 @@ class WorkoutSetList extends ConsumerWidget {
 
   void _removeWorkoutSet(final WidgetRef ref, final WorkoutSet set) {
     ref.read(workoutNotifierProvider.notifier).removeSet(set);
+    ref.read(workoutSetCountNotifierProvider.notifier).deleteSet();
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:magic_workouts/constants/app_input_formatters.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
-import 'package:magic_workouts/providers/form_reset_notifier_provider/form_reset_notifier_provider.dart';
+import 'package:magic_workouts/providers/workout_set_count_notifier_provider/workout_set_count_notifier_provider.dart';
 import 'package:magic_workouts/providers/workout_set_notifier_provider/workout_set_notifier_provider.dart';
 import 'package:magic_workouts/widgets/custom_text_field.dart';
 
@@ -11,7 +11,7 @@ class WeightInputField extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.watch(formResetNotifierProvider);
+    ref.watch(workoutSetCountNotifierProvider);
     final int? weight = ref.read(workoutSetNotifierProvider).weight;
 
     return CustomTextField(
