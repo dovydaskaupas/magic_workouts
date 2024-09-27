@@ -15,6 +15,14 @@ class WorkoutNotifier extends _$WorkoutNotifier {
     state = state.copyWith(sets: [...state.sets, set]);
   }
 
+  void removeSet(final WorkoutSet set) {
+    final List<WorkoutSet> updatedList = List.from(state.sets);
+
+    updatedList.remove(set);
+
+    state = state.copyWith(sets: updatedList);
+  }
+
   void setName(final String name) {
     state = state.copyWith(name: name);
   }

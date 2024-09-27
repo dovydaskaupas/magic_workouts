@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
+import 'package:magic_workouts/models/workout_set/workout_set.dart';
 import 'package:magic_workouts/providers/workout_notifier_provider/workout_notifier_provider.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/workout_set_list/workout_set_item.dart';
 
@@ -23,7 +24,10 @@ class WorkoutSetList extends ConsumerWidget {
           return WorkoutSetItem(
             index: index,
             workoutSet: workoutProvider.sets[index],
-            onDelete: () => _deleteWorkoutSet(index),
+            onDelete: () => _removeWorkoutSet(
+              ref,
+              workoutProvider.sets[index],
+            ),
           );
         },
         separatorBuilder: (_, __) => const Divider(thickness: 1),
@@ -31,5 +35,7 @@ class WorkoutSetList extends ConsumerWidget {
     );
   }
 
-  void _deleteWorkoutSet(final int index) {}
+  void _removeWorkoutSet(final WidgetRef ref, final WorkoutSet set) {
+    ref.read(workoutNotifierProvider.notifier).removeSet(set);
+  }
 }
