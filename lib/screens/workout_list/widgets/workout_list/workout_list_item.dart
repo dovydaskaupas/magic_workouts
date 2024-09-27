@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:magic_workouts/enums/app_routes.dart';
 import 'package:magic_workouts/models/workout/workout.dart';
 import 'package:magic_workouts/utilities/text_theme_extension.dart';
 
-class WorkoutListItem extends ConsumerWidget {
+class WorkoutListItem extends StatelessWidget {
   const WorkoutListItem({
     super.key,
     required this.index,
     required this.workout,
+    required this.onEdit,
+    required this.onDelete,
   });
 
   final int index;
   final Workout workout;
+  final VoidCallback onEdit;
+  final VoidCallback onDelete;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
     return ListTile(
@@ -27,10 +28,10 @@ class WorkoutListItem extends ConsumerWidget {
         style: theme.textTheme.title.copyWith(fontSize: 16),
       ),
       trailing: InkResponse(
-        onTap: () => _deleteWorkout(ref),
+        onTap: onDelete,
         child: const Icon(Icons.delete),
       ),
-      onTap: () => _editWorkout(context),
+      onTap: onEdit,
     );
   }
 
@@ -41,13 +42,4 @@ class WorkoutListItem extends ConsumerWidget {
 
     return "${date.year}/${date.month}/${date.day} ${date.hour}:${date.minute}";
   }
-
-  void _editWorkout(final BuildContext context) {
-    final String workoutDate = workout.date.toString();
-    final String query = "?workoutDate=$workoutDate";
-
-    context.push("${AppRoutes.newWorkout.path}$query");
-  }
-
-  void _deleteWorkout(final WidgetRef ref) {}
 }

@@ -38,6 +38,20 @@ class AppStorageService {
     );
   }
 
+  Future<void> removeWorkout(final Workout workout) async {
+    final List<Workout> workoutList = await _getWorkoutList();
+
+    final int index = workoutList.indexWhere((w) => w.date == workout.date);
+    if (index == -1) return;
+
+    workoutList.removeAt(index);
+
+    await _secureStorage.write(
+      key: Tokens.workoutToken,
+      value: jsonEncode(workoutList),
+    );
+  }
+
   Future<List<Workout>> getSavedWorkouts() async {
     return await _getWorkoutList();
   }
