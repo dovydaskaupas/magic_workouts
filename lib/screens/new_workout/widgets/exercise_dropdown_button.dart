@@ -17,6 +17,7 @@ class ExerciseDropdownButton extends ConsumerWidget {
       selectedValue: exercise,
       hint: AppStrings.newExerciseDropdownHint,
       items: const [
+        AppStrings.newExerciseDropdownHint,
         AppStrings.newExercise1,
         AppStrings.newExercise2,
         AppStrings.newExercise3,

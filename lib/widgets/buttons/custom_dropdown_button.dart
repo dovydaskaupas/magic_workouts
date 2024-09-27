@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/utilities/text_theme_extension.dart';
 
@@ -25,9 +26,16 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
 
   @override
   void initState() {
-    _selectedValue = widget.selectedValue;
+    _initSelectedValue();
 
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant oldWidget) {
+    _initSelectedValue();
+
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -73,9 +81,7 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
               value: item,
               child: Text(
                 item,
-                style: item == _selectedValue
-                    ? theme.textTheme.label
-                    : theme.textTheme.value,
+                style: _getTextTheme(item, theme),
               ),
             );
           }).toList(),
@@ -85,9 +91,33 @@ class _CustomDropdownButtonState extends State<CustomDropdownButton> {
     );
   }
 
+  void _initSelectedValue() {
+    if (widget.selectedValue == null) {
+      _selectedValue = AppStrings.newExerciseDropdownHint;
+    } else {
+      _selectedValue = widget.selectedValue;
+    }
+  }
+
+  TextStyle _getTextTheme(final String? item, final ThemeData theme) {
+    if (item == AppStrings.newExerciseDropdownHint) return theme.textTheme.hint;
+
+    return item == _selectedValue
+        ? theme.textTheme.label
+        : theme.textTheme.value;
+  }
+
   void _onSelectionChanged(final String? newValue) {
+    final String? formattedValue;
+
+    if (newValue == AppStrings.newExerciseDropdownHint) {
+      formattedValue = null;
+    } else {
+      formattedValue = newValue;
+    }
+
     setState(() => _selectedValue = newValue);
 
-    widget.onChanged(newValue);
+    widget.onChanged(formattedValue);
   }
 }
