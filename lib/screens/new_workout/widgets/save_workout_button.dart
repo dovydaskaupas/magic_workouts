@@ -33,7 +33,11 @@ class SaveWorkoutButton extends ConsumerWidget {
   ) async {
     FocusManager.instance.primaryFocus?.unfocus();
 
-    ref.read(workoutNotifierProvider.notifier).addSet(workoutSet);
-    ref.read(workoutSetCountNotifierProvider.notifier).addSet(ref);
+    if (workoutSet.date == null) {
+      ref.read(workoutNotifierProvider.notifier).addSet(workoutSet);
+      ref.read(workoutSetCountNotifierProvider.notifier).addSet(ref);
+    } else {
+      ref.read(workoutNotifierProvider.notifier).updateSet(workoutSet);
+    }
   }
 }

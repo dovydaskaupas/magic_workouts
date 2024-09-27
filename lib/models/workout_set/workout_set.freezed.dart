@@ -23,6 +23,7 @@ mixin _$WorkoutSet {
   String? get exercise => throw _privateConstructorUsedError;
   int? get weight => throw _privateConstructorUsedError;
   int? get repetitions => throw _privateConstructorUsedError;
+  DateTime? get date => throw _privateConstructorUsedError;
 
   /// Serializes this WorkoutSet to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ abstract class $WorkoutSetCopyWith<$Res> {
           WorkoutSet value, $Res Function(WorkoutSet) then) =
       _$WorkoutSetCopyWithImpl<$Res, WorkoutSet>;
   @useResult
-  $Res call({String? exercise, int? weight, int? repetitions});
+  $Res call({String? exercise, int? weight, int? repetitions, DateTime? date});
 }
 
 /// @nodoc
@@ -61,6 +62,7 @@ class _$WorkoutSetCopyWithImpl<$Res, $Val extends WorkoutSet>
     Object? exercise = freezed,
     Object? weight = freezed,
     Object? repetitions = freezed,
+    Object? date = freezed,
   }) {
     return _then(_value.copyWith(
       exercise: freezed == exercise
@@ -75,6 +77,10 @@ class _$WorkoutSetCopyWithImpl<$Res, $Val extends WorkoutSet>
           ? _value.repetitions
           : repetitions // ignore: cast_nullable_to_non_nullable
               as int?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -87,7 +93,7 @@ abstract class _$$WorkoutSetImplCopyWith<$Res>
       __$$WorkoutSetImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? exercise, int? weight, int? repetitions});
+  $Res call({String? exercise, int? weight, int? repetitions, DateTime? date});
 }
 
 /// @nodoc
@@ -106,6 +112,7 @@ class __$$WorkoutSetImplCopyWithImpl<$Res>
     Object? exercise = freezed,
     Object? weight = freezed,
     Object? repetitions = freezed,
+    Object? date = freezed,
   }) {
     return _then(_$WorkoutSetImpl(
       exercise: freezed == exercise
@@ -120,6 +127,10 @@ class __$$WorkoutSetImplCopyWithImpl<$Res>
           ? _value.repetitions
           : repetitions // ignore: cast_nullable_to_non_nullable
               as int?,
+      date: freezed == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -127,7 +138,8 @@ class __$$WorkoutSetImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$WorkoutSetImpl implements _WorkoutSet {
-  const _$WorkoutSetImpl({this.exercise, this.weight, this.repetitions});
+  const _$WorkoutSetImpl(
+      {this.exercise, this.weight, this.repetitions, this.date});
 
   factory _$WorkoutSetImpl.fromJson(Map<String, dynamic> json) =>
       _$$WorkoutSetImplFromJson(json);
@@ -138,10 +150,12 @@ class _$WorkoutSetImpl implements _WorkoutSet {
   final int? weight;
   @override
   final int? repetitions;
+  @override
+  final DateTime? date;
 
   @override
   String toString() {
-    return 'WorkoutSet(exercise: $exercise, weight: $weight, repetitions: $repetitions)';
+    return 'WorkoutSet(exercise: $exercise, weight: $weight, repetitions: $repetitions, date: $date)';
   }
 
   @override
@@ -153,12 +167,14 @@ class _$WorkoutSetImpl implements _WorkoutSet {
                 other.exercise == exercise) &&
             (identical(other.weight, weight) || other.weight == weight) &&
             (identical(other.repetitions, repetitions) ||
-                other.repetitions == repetitions));
+                other.repetitions == repetitions) &&
+            (identical(other.date, date) || other.date == date));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, exercise, weight, repetitions);
+  int get hashCode =>
+      Object.hash(runtimeType, exercise, weight, repetitions, date);
 
   /// Create a copy of WorkoutSet
   /// with the given fields replaced by the non-null parameter values.
@@ -180,7 +196,8 @@ abstract class _WorkoutSet implements WorkoutSet {
   const factory _WorkoutSet(
       {final String? exercise,
       final int? weight,
-      final int? repetitions}) = _$WorkoutSetImpl;
+      final int? repetitions,
+      final DateTime? date}) = _$WorkoutSetImpl;
 
   factory _WorkoutSet.fromJson(Map<String, dynamic> json) =
       _$WorkoutSetImpl.fromJson;
@@ -191,6 +208,8 @@ abstract class _WorkoutSet implements WorkoutSet {
   int? get weight;
   @override
   int? get repetitions;
+  @override
+  DateTime? get date;
 
   /// Create a copy of WorkoutSet
   /// with the given fields replaced by the non-null parameter values.

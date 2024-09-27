@@ -12,7 +12,19 @@ class WorkoutNotifier extends _$WorkoutNotifier {
   }
 
   void addSet(final WorkoutSet set) {
-    state = state.copyWith(sets: [...state.sets, set]);
+    state = state.copyWith(
+      sets: [...state.sets, set.copyWith(date: DateTime.now())],
+    );
+  }
+
+  void updateSet(final WorkoutSet set) {
+    final int index = state.sets.indexWhere((s) => s.date == set.date);
+    if (index == -1) return;
+
+    final List<WorkoutSet> updatedSetList = List.from(state.sets);
+    updatedSetList[index] = set;
+
+    state = state.copyWith(sets: updatedSetList);
   }
 
   void removeSet(final WorkoutSet set) {

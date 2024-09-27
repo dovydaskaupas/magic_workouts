@@ -9,6 +9,7 @@ class WorkoutSet with _$WorkoutSet {
     String? exercise,
     int? weight,
     int? repetitions,
+    DateTime? date,
   }) = _WorkoutSet;
 
   factory WorkoutSet.fromJson(final Map<String, Object?> json) =>
