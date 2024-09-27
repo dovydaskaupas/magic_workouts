@@ -26,15 +26,11 @@ class SaveWorkoutFloatingActionButton extends ConsumerWidget {
 
   void _saveWorkout(final BuildContext context, final WidgetRef ref) async {
     final CustomSnackBar snackBar = CustomSnackBar(context);
+    final Workout workout = ref.read(workoutNotifierProvider);
 
-    final String? workoutName = await InputDialog(context).show(
-      title: AppStrings.titleNewWorkout,
-      labelText: AppStrings.newWorkoutName,
-      maxLength: UIProperties.lengthInputGeneric,
-    );
+    final String? workoutName = workout.name ?? await _getWorkoutName(context);
     if (workoutName == null) return;
 
-    final Workout workout = ref.read(workoutNotifierProvider);
     await AppStorageService.instance.saveWorkout(workout.copyWith(
       name: workoutName,
       date: DateTime.now(),
@@ -47,6 +43,14 @@ class SaveWorkoutFloatingActionButton extends ConsumerWidget {
       success: true,
       message: AppStrings.genSuccess,
       delay: UIProperties.delayShort,
+    );
+  }
+
+  Future<String?> _getWorkoutName(final BuildContext context) async {
+    return await InputDialog(context).show(
+      title: AppStrings.titleNewWorkout,
+      labelText: AppStrings.newWorkoutName,
+      maxLength: UIProperties.lengthInputGeneric,
     );
   }
 }
