@@ -3,6 +3,9 @@ import 'dart:ui';
 class UIProperties {
   UIProperties._();
 
+  static const int delayShort = 150;
+  static const int delayLong = 300;
+
   static const double elevationCard = 24;
 
   static const int lengthInputGeneric = 30;

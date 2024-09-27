@@ -7,6 +7,7 @@ import 'package:magic_workouts/providers/workout_notifier_provider/workout_notif
 import 'package:magic_workouts/providers/workout_set_count_notifier_provider/workout_set_count_notifier_provider.dart';
 import 'package:magic_workouts/providers/workout_set_notifier_provider/workout_set_notifier_provider.dart';
 import 'package:magic_workouts/utilities/app_storage_service.dart';
+import 'package:magic_workouts/widgets/modals/custom_snack_bar.dart';
 import 'package:magic_workouts/widgets/modals/input_dialog.dart';
 
 class SaveWorkoutFloatingActionButton extends ConsumerWidget {
@@ -24,6 +25,8 @@ class SaveWorkoutFloatingActionButton extends ConsumerWidget {
   }
 
   void _saveWorkout(final BuildContext context, final WidgetRef ref) async {
+    final CustomSnackBar snackBar = CustomSnackBar(context);
+
     final String? workoutName = await InputDialog(context).show(
       title: AppStrings.titleNewWorkout,
       labelText: AppStrings.newWorkoutName,
@@ -32,7 +35,6 @@ class SaveWorkoutFloatingActionButton extends ConsumerWidget {
     if (workoutName == null) return;
 
     final Workout workout = ref.read(workoutNotifierProvider);
-
     await AppStorageService.instance.saveWorkout(workout.copyWith(
       name: workoutName,
       date: DateTime.now(),
@@ -40,5 +42,11 @@ class SaveWorkoutFloatingActionButton extends ConsumerWidget {
 
     ref.read(workoutSetNotifierProvider.notifier).reset();
     ref.read(workoutNotifierProvider.notifier).reset();
+
+    snackBar.showSnackBar(
+      success: true,
+      message: AppStrings.genSuccess,
+      delay: UIProperties.delayShort,
+    );
   }
 }

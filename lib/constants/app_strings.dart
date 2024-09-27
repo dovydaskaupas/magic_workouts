@@ -5,6 +5,7 @@ class AppStrings {
   static const String genSave = "Save";
   static const String genConfirm = "Confirm";
   static const String genCancel = "Cancel";
+  static const String genSuccess = "Success";
 
   // titles
   static const String appName = "Magic Workouts";
