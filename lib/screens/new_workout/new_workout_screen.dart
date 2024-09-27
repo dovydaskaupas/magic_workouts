@@ -5,6 +5,7 @@ import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/models/workout/workout.dart';
 import 'package:magic_workouts/providers/workout_loader_provider/workout_loader_provider.dart';
 import 'package:magic_workouts/providers/workout_notifier_provider/workout_notifier_provider.dart';
+import 'package:magic_workouts/providers/workout_set_count_notifier_provider/workout_set_count_notifier_provider.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/exercise_dropdown_button.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/repetitions_input_field.dart';
 import 'package:magic_workouts/screens/new_workout/widgets/save_workout_button.dart';
@@ -64,6 +65,9 @@ class NewWorkoutScreen extends ConsumerWidget {
 
     Future.microtask(() {
       ref.read(workoutNotifierProvider.notifier).init(workout);
+
+      final int setsCount = workout.sets.length;
+      ref.read(workoutSetCountNotifierProvider.notifier).init(setsCount);
     });
   }
 }

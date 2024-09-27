@@ -20,4 +20,8 @@ class WorkoutSetCountNotifier extends _$WorkoutSetCountNotifier {
   void deleteSet() {
     state = state - 1;
   }
+
+  void init(final int count) {
+    state = count;
+  }
 }
