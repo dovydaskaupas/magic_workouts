@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
 import 'package:magic_workouts/models/workout/workout.dart';
@@ -27,17 +28,26 @@ class SaveWorkoutFloatingActionButton extends ConsumerWidget {
   void _saveWorkout(final BuildContext context, final WidgetRef ref) async {
     final CustomSnackBar snackBar = CustomSnackBar(context);
     final Workout workout = ref.read(workoutNotifierProvider);
+    final bool isEditingWorkout = workout.name != null;
 
     final String? workoutName = workout.name ?? await _getWorkoutName(context);
     if (workoutName == null) return;
 
-    await AppStorageService.instance.saveWorkout(workout.copyWith(
-      name: workoutName,
-      date: DateTime.now(),
-    ));
+    if (isEditingWorkout) {
+      await AppStorageService.instance.updateWorkout(workout);
+    } else {
+      await AppStorageService.instance.saveWorkout(workout.copyWith(
+        name: workoutName,
+        date: DateTime.now(),
+      ));
+    }
 
     ref.read(workoutSetNotifierProvider.notifier).reset();
     ref.read(workoutNotifierProvider.notifier).reset();
+
+    if (isEditingWorkout && context.mounted) {
+      context.pop();
+    }
 
     snackBar.showSnackBar(
       success: true,
