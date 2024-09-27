@@ -26,7 +26,9 @@ class AppRouter {
       GoRoute(
         name: AppRoutes.newWorkout.name,
         path: AppRoutes.newWorkout.path,
-        builder: (context, state) => const NewWorkoutScreen(),
+        builder: (context, state) => NewWorkoutScreen(
+          workoutDate: state.uri.queryParameters["workoutDate"],
+        ),
       ),
       GoRoute(
         name: AppRoutes.workoutList.name,
