@@ -5,6 +5,7 @@ class ScrollableScaffold extends StatelessWidget {
     super.key,
     required this.appBar,
     required this.children,
+    this.floatingActionButton,
     this.crossAxisAlignment,
     this.mainAxisAlignment,
   });
@@ -12,6 +13,7 @@ class ScrollableScaffold extends StatelessWidget {
   final PreferredSizeWidget appBar;
   final List<Widget> children;
 
+  final Widget? floatingActionButton;
   final CrossAxisAlignment? crossAxisAlignment;
   final MainAxisAlignment? mainAxisAlignment;
 
@@ -19,6 +21,7 @@ class ScrollableScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: appBar,
+      floatingActionButton: floatingActionButton,
       body: Scrollbar(
         child: SingleChildScrollView(
           child: Container(
