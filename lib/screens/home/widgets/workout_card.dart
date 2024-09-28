@@ -43,9 +43,12 @@ class WorkoutCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      title,
-                      style: theme.textTheme.cardTitle,
+                    Flexible(
+                      child: Text(
+                        title,
+                        maxLines: 2,
+                        style: theme.textTheme.cardTitle,
+                      ),
                     ),
                     Icon(icon),
                   ],

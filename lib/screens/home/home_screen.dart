@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
+import 'package:magic_workouts/constants/widget_keys.dart';
 import 'package:magic_workouts/enums/app_routes.dart';
 import 'package:magic_workouts/screens/home/widgets/workout_card.dart';
 import 'package:magic_workouts/widgets/custom_app_bar.dart';
@@ -13,12 +14,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScrollableScaffold(
-      appBar: const CustomAppBar(title: AppStrings.titleHome),
+      key: WidgetKeys.keyHomeScreen,
+      appBar: const CustomAppBar(
+        key: WidgetKeys.keyCustomAppBar,
+        title: AppStrings.titleHome,
+      ),
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         const SizedBox(width: double.maxFinite),
         WorkoutCard(
+          key: WidgetKeys.keyNewWorkoutCard,
           title: AppStrings.titleNewWorkout,
           message: AppStrings.homeCardNewMessage,
           icon: Icons.fitness_center,
