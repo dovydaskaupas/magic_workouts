@@ -4,13 +4,11 @@ Technical challenge for Magic Engineering
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is built on the MVVM architecture, 
+showcasing clean, modular code, and a scalable file structure.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+3rd party dependencies:
+ - State management is handled using 'Riverpod'.
+ - 'FlutterSecureStorage' is utilized for local storage.
+ - 'Freezed' combined with 'JSON Serializable' is used for model generation.
+ - Routing is managed using GoRouter.
