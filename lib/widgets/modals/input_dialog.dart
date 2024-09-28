@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:magic_workouts/constants/app_strings.dart';
 import 'package:magic_workouts/constants/ui_properties.dart';
+import 'package:magic_workouts/constants/widget_keys.dart';
 
 class InputDialog {
   late final BuildContext _context;
@@ -36,6 +37,7 @@ class InputDialog {
               horizontal: UIProperties.paddingGeneric,
             ),
             child: TextField(
+              key: WidgetKeys.keyInputDialog,
               controller: _controller,
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.zero,

@@ -32,6 +32,7 @@ class HomeScreen extends StatelessWidget {
         ),
         const SizedBox(height: UIProperties.paddingCard),
         WorkoutCard(
+          key: WidgetKeys.keyWorkoutListCard,
           title: AppStrings.titleWorkoutList,
           message: AppStrings.homeCardWorkoutsMessage,
           icon: Icons.history,
